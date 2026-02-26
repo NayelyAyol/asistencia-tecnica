@@ -25,6 +25,10 @@ import TecnicoDetail from "./pages/Tecnicos/TecnicosDetail"
 // tickets
 import TicketCreate from "./pages/Tickets/TicketsCreate"
 import TicketList from "./pages/Tickets/TicketsList"
+import TicketDetail from "./pages/Tickets/TicketsDetail"
+import TicketEdit from "./pages/Tickets/TicketsEdit"
+
+
 
 
 
@@ -94,6 +98,8 @@ function App() {
           <Route index element={<TicketList />} />
           <Route path="crear" element={<TicketCreate />} />
           <Route path="listar" element={<TicketList />} />
+          <Route path="actualizar/:id" element={<TicketEdit />} />
+          <Route path="buscar" element={<TicketDetail />} />
         </Route>
 
 

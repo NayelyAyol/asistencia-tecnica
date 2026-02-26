@@ -31,9 +31,10 @@ const Login = () => {
                 <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: "url('/assets/images.jpg')" }}
-                />
-                <div className="absolute inset-0 bg-rose-900/70" />
+                ></div>
+                    <div className="absolute inset-0 bg-rose-900/70"></div>
             </div>
+
 
             {/* Formulario */}
             <div className="flex w-full md:w-1/2 items-center justify-center p-4">
