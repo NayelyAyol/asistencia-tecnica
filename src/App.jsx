@@ -11,16 +11,21 @@ import Register from "./pages/Auth/Register"
 //Home
 import Home from "./pages/Home"
 // clientes
-import ClienteCreate from "./pages/Clientes/ClientesCreate" 
-import ClienteList from "./pages/Clientes/ClientesList" 
-import ClienteEdit from "./pages/Clientes/ClientesEdit" 
-import ClienteDetail from "./pages/Clientes/ClientesDetail" 
+import ClienteCreate from "./pages/Clientes/ClientesCreate"
+import ClienteList from "./pages/Clientes/ClientesList"
+import ClienteEdit from "./pages/Clientes/ClientesEdit"
+import ClienteDetail from "./pages/Clientes/ClientesDetail"
 
 // tecnicos
 import TecnicoCreate from "./pages/Tecnicos/TecnicosCreate"
 import TecnicoList from "./pages/Tecnicos/TecnicosList"
 import TecnicoEdit from "./pages/Tecnicos/TecnicosEdit"
 import TecnicoDetail from "./pages/Tecnicos/TecnicosDetail"
+
+// tickets
+import TicketCreate from "./pages/Tickets/TicketsCreate"
+import TicketList from "./pages/Tickets/TicketsList"
+
 
 
 function App() {
@@ -45,7 +50,7 @@ function App() {
           }
         />
 
-         {/* RUTAS CLIENTES */}
+        {/* RUTAS CLIENTES */}
         <Route
           path="/clientes"
           element={
@@ -75,6 +80,20 @@ function App() {
           <Route path="listar" element={<TecnicoList />} />
           <Route path="actualizar/:id" element={<TecnicoEdit />} />
           <Route path="buscar" element={<TecnicoDetail />} />
+        </Route>
+
+        {/* RUTAS TICKETS */}
+        <Route
+          path="/tickets"
+          element={
+            <PrivateRoute>
+              <DashboardLayout />
+            </PrivateRoute>
+          }
+        >
+          <Route index element={<TicketList />} />
+          <Route path="crear" element={<TicketCreate />} />
+          <Route path="listar" element={<TicketList />} />
         </Route>
 
 
