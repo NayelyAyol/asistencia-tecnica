@@ -16,6 +16,10 @@ import ClienteList from "./pages/Clientes/ClientesList"
 import ClienteEdit from "./pages/Clientes/ClientesEdit" 
 import ClienteDetail from "./pages/Clientes/ClientesDetail" 
 
+// tecnicos
+import TecnicoCreate from "./pages/Tecnicos/TecnicosCreate"
+import TecnicoList from "./pages/Tecnicos/TecnicosList"
+
 
 function App() {
   return (
@@ -54,6 +58,21 @@ function App() {
           <Route path="actualizar/:id" element={<ClienteEdit />} />
           <Route path="buscar" element={<ClienteDetail />} />
         </Route>
+
+        {/* RUTAS TECNICOS */}
+        <Route
+          path="/tecnicos"
+          element={
+            <PrivateRoute>
+              <DashboardLayout />
+            </PrivateRoute>
+          }
+        >
+          <Route index element={<TecnicoList />} />
+          <Route path="crear" element={<TecnicoCreate />} />
+          <Route path="listar" element={<TecnicoList />} />
+        </Route>
+
 
       </Routes>
     </>

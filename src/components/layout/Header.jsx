@@ -23,11 +23,8 @@ const Header = () => {
 
             <div>
                 <h1 className="text-xl font-bold">
-                    Sistema de Reservas
+                    Sistema de Asistencia Técnica
                 </h1>
-                <p className="text-sm text-white/80">
-                    Bienvenido {user?.nombre}
-                </p>
             </div>
 
             <div className="flex items-center gap-4">
