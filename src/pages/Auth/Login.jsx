@@ -27,12 +27,8 @@ const Login = () => {
             <ToastContainer />
 
             {/* Imagen de fondo */}
-            <div className="hidden md:flex w-1/2 relative">
-                <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: "url('/assets/images.jpg')" }}
-                ></div>
-                    <div className="absolute inset-0 bg-rose-900/70"></div>
+            <div className="hidden md:flex w-1/2 relative flex-col justify-center items-center px-10">
+                <div className="absolute inset-0 bg-rose-700/70"></div>
             </div>
 
 
@@ -44,7 +40,7 @@ const Login = () => {
                         Iniciar Sesión
                     </h1>
                     <p className="text-center text-gray-600">
-                        Acceso al sistema de reservas
+                        Acceso al sistema de asistencia
                     </p>
 
                     <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
@@ -83,13 +79,13 @@ const Login = () => {
 
 
 
-                            {/* Botón */}
-                            <button
-                                type="submit"
-                                className="w-full py-3 bg-gradient-to-r from-rose-500 to-orange-500 text-white font-semibold rounded-xl shadow-md hover:from-rose-600 hover:to-orange-600 transition"
-                            >
-                                Acceder
-                            </button>
+                        {/* Botón */}
+                        <button
+                            type="submit"
+                            className="w-full py-3 bg-gradient-to-r from-rose-500 to-orange-500 text-white font-semibold rounded-xl shadow-md hover:from-rose-600 hover:to-orange-600 transition"
+                        >
+                            Acceder
+                        </button>
 
                     </form>
 

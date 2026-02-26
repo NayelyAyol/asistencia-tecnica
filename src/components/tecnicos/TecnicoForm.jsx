@@ -50,14 +50,20 @@ const TecnicoForm = ({ initialData = {}, onSubmit, loading = false, isEdit = fal
         }
 
         if (form.fecha_nacimiento) {
-            const fecha = new Date(form.fecha_nacimiento);
-            const hoy = new Date();
-            const minFecha = new Date();
-            minFecha.setFullYear(hoy.getFullYear() - 100);
-            if (fecha > hoy || fecha < minFecha) {
-                newErrors.fecha_nacimiento = "Edad inválida (0-100 años)";
+            const hoy = new Date()
+            const nacimiento = new Date(form.fecha_nacimiento)
+
+            const fechaMinima = new Date()
+            fechaMinima.setFullYear(hoy.getFullYear() - 100)
+
+            const fechaMaxima = new Date()
+            fechaMaxima.setFullYear(hoy.getFullYear() - 16)
+
+            if (nacimiento < fechaMinima || nacimiento > fechaMaxima) {
+                newErrors.fecha_nacimiento = "La edad debe estar entre 16 y 100 años"
             }
         }
+
 
         if (form.genero && !["Masculino","Femenino","Otro"].includes(form.genero)) {
             newErrors.genero = "Género inválido";

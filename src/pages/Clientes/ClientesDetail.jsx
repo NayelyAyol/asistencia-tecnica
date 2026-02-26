@@ -101,7 +101,7 @@ const ClienteDetail = () => {
                         onClick={resetClientes}
                         className="bg-amber-400 text-white px-4 py-2 rounded-lg hover:bg-amber-500 transition"
                     >
-                        Reset
+                        Borrar
                     </button>
                 </div>
 

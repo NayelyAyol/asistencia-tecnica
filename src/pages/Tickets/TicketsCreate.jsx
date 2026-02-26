@@ -34,11 +34,9 @@ const TicketCreate = () => {
     const buscarCliente = async () => {
         if (!busquedaCliente.trim()) return toast.warning("Ingrese la cédula");
         try {
-            // Tu backend usa: /api/clientes/buscar?cedula=XXX
             const data = await fetchData(`/clientes/buscar?cedula=${busquedaCliente.trim()}`);
             
             if (data?.cliente) {
-                // Como tu backend devuelve un solo objeto, lo metemos en un array para el map
                 setClientes([data.cliente]);
                 toast.success("Cliente encontrado");
             }
@@ -64,7 +62,6 @@ const TicketCreate = () => {
     const buscarTecnico = async () => {
         if (!busquedaTecnico.trim()) return toast.warning("Ingrese la cédula");
         try {
-            // Tu backend usa: /api/tecnicos/buscar?cedula=XXX
             const data = await fetchData(`/tecnicos/buscar?cedula=${busquedaTecnico.trim()}`);
             
             if (data?.tecnico) {

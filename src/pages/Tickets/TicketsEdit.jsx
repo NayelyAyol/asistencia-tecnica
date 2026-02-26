@@ -57,58 +57,59 @@ const TicketEdit = () => {
     }, [id]);
 
 
-    const buscarCliente = async () => {
-        if (!busquedaCliente.trim()) return;
+ const buscarCliente = async () => {
+        if (!busquedaCliente.trim()) return toast.warning("Ingrese la cédula");
         try {
-            const valor = busquedaCliente.trim();
-            const url = /^\d+$/.test(valor)
-                ? `/clientes/buscar?cedula=${valor}`
-                : `/clientes/buscar?apellido=${valor}`;
-            const data = await fetchData(url);
-            if (data?.clientes) setClientes(data.clientes);
-        } catch {
-            toast.error("Cliente no encontrado");
+            const data = await fetchData(`/clientes/buscar?cedula=${busquedaCliente.trim()}`);
+            
+            if (data?.cliente) {
+                setClientes([data.cliente]);
+                toast.success("Cliente encontrado");
+            }
+        } catch (err) {
+            toast.error("Cédula no encontrada");
+            setClientes([]);
         }
-    };
-
-    const resetCliente = async () => {
-        setBusquedaCliente("");
-        const data = await fetchData("/clientes/listar");
-        if (data?.clientes) setClientes(data.clientes);
     };
 
     const seleccionarCliente = (c) => {
-        setDetalleCliente(c);
+        setForm(prev => ({ ...prev, cliente: c._id }));
         setBusquedaCliente(c.cedula);
-        setForm({ ...form, cliente: c._id });
-        toast.info("Cliente seleccionado");
+        toast.info(`Cliente: ${c.apellido} seleccionado`);
     };
 
+    const resetCliente = () => {
+        setBusquedaCliente("");
+        setForm(prev => ({ ...prev, cliente: "" }));
+        cargarIniciales();
+    };
+
+    // --- BÚSQUEDA DE TÉCNICO ---
     const buscarTecnico = async () => {
-        if (!busquedaTecnico.trim()) return;
+        if (!busquedaTecnico.trim()) return toast.warning("Ingrese la cédula");
         try {
-            const valor = busquedaTecnico.trim();
-            const url = /^\d+$/.test(valor)
-                ? `/tecnicos/buscar?cedula=${valor}`
-                : `/tecnicos/buscar?apellido=${valor}`;
-            const data = await fetchData(url);
-            if (data?.tecnicos) setTecnicos(data.tecnicos);
-        } catch {
+            const data = await fetchData(`/tecnicos/buscar?cedula=${busquedaTecnico.trim()}`);
+            
+            if (data?.tecnico) {
+                setTecnicos([data.tecnico]);
+                toast.success("Técnico encontrado");
+            }
+        } catch (err) {
             toast.error("Técnico no encontrado");
+            setTecnicos([]);
         }
     };
 
-    const resetTecnico = async () => {
-        setBusquedaTecnico("");
-        const data = await fetchData("/tecnicos/listar");
-        if (data?.tecnicos) setTecnicos(data.tecnicos);
+    const seleccionarTecnico = (t) => {
+        setForm(prev => ({ ...prev, tecnico: t._id }));
+        setBusquedaTecnico(t.cedula);
+        toast.info(`Técnico: ${t.apellido} seleccionado`);
     };
 
-    const seleccionarTecnico = (t) => {
-        setDetalleTecnico(t);
-        setBusquedaTecnico(t.cedula);
-        setForm({ ...form, tecnico: t._id });
-        toast.info("Técnico seleccionado");
+    const resetTecnico = () => {
+        setBusquedaTecnico("");
+        setForm(prev => ({ ...prev, tecnico: "" }));
+        cargarIniciales();
     };
 
 
