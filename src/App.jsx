@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 import PrivateRoute from "./routes/PrivateRoutes"
+import DashboardLayout from "./components/layout/DashboardLayout"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
@@ -9,6 +10,9 @@ import Register from "./pages/Auth/Register"
 
 //Home
 import Home from "./pages/Home"
+// clientes
+import ClienteCreate from "./pages/Clientes/ClientesCreate" 
+import ClienteList from "./pages/Clientes/ClientesList" 
 
 
 function App() {
@@ -32,6 +36,21 @@ function App() {
             </PrivateRoute>
           }
         />
+
+         {/* RUTAS CLIENTES */}
+        <Route
+          path="/clientes"
+          element={
+            <PrivateRoute>
+              <DashboardLayout />
+            </PrivateRoute>
+          }
+        >
+          <Route index element={<ClienteList />} />
+          <Route path="crear" element={<ClienteCreate />} />
+          <Route path="listar" element={<ClienteList />} />
+        </Route>
+
       </Routes>
     </>
   )
