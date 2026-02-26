@@ -32,34 +32,46 @@ const TecnicoList = () => {
 
   
     const buscarTecnico = async () => {
-        const cedula = busqueda.trim();
-        if (!cedula) {
-            toast.error("Ingrese la cédula para buscar");
-            return;
+        const valor = busqueda.trim()
+
+        if (!valor) {
+            toast.error("Ingrese una cédula")
+            return
         }
 
         try {
-            setLoading(true);
-            const res = await fetchData(`/tecnicos/buscar?cedula=${cedula}`);
+            setLoading(true)
 
-            if (!res?.tecnicos || res.tecnicos.length === 0) {
-                toast.warning("No se encontraron técnicos con esa cédula");
-                setTecnicos([]);
-                return;
+            const res = await fetchData(`/tecnicos/buscar?cedula=${valor}`)
+
+            // Caso 1: backend devuelve un solo objeto
+            if (res?.tecnico) {
+                setTecnicos([res.tecnico])
+                toast.success("Técnico encontrado")
+                return
             }
 
-            setTecnicos(res.tecnicos);
-            toast.success("Técnico encontrado");
-        } catch (error) {
-            toast.error(error?.error || "Error en la búsqueda");
-        } finally {
-            setLoading(false);
-        }
-    };
+            // Caso 2: backend devuelve array
+            if (res?.tecnico && res.tecnico.length > 0) {
+                setTecnicos(res.tecnico)
+                toast.success("Resultados encontrados")
+                return
+            }
 
-    // ================================
-    // ELIMINAR TÉCNICO
-    // ================================
+            // Si no hay resultados
+            setTecnicos([])
+            toast.warning("No se encontró el cliente")
+
+        } catch (error) {
+            toast.error("Error en la búsqueda")
+            setTecnicos([])
+        } finally {
+            setLoading(false)
+        }
+    }
+
+
+
     const openDeleteModal = (tecnico) => {
         setTecnicoToDelete(tecnico);
         setShowModal(true);

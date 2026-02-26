@@ -19,6 +19,8 @@ import ClienteDetail from "./pages/Clientes/ClientesDetail"
 // tecnicos
 import TecnicoCreate from "./pages/Tecnicos/TecnicosCreate"
 import TecnicoList from "./pages/Tecnicos/TecnicosList"
+import TecnicoEdit from "./pages/Tecnicos/TecnicosEdit"
+import TecnicoDetail from "./pages/Tecnicos/TecnicosDetail"
 
 
 function App() {
@@ -71,6 +73,8 @@ function App() {
           <Route index element={<TecnicoList />} />
           <Route path="crear" element={<TecnicoCreate />} />
           <Route path="listar" element={<TecnicoList />} />
+          <Route path="actualizar/:id" element={<TecnicoEdit />} />
+          <Route path="buscar" element={<TecnicoDetail />} />
         </Route>
 
 
