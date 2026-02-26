@@ -13,6 +13,8 @@ import Home from "./pages/Home"
 // clientes
 import ClienteCreate from "./pages/Clientes/ClientesCreate" 
 import ClienteList from "./pages/Clientes/ClientesList" 
+import ClienteEdit from "./pages/Clientes/ClientesEdit" 
+import ClienteDetail from "./pages/Clientes/ClientesDetail" 
 
 
 function App() {
@@ -49,6 +51,8 @@ function App() {
           <Route index element={<ClienteList />} />
           <Route path="crear" element={<ClienteCreate />} />
           <Route path="listar" element={<ClienteList />} />
+          <Route path="actualizar/:id" element={<ClienteEdit />} />
+          <Route path="buscar" element={<ClienteDetail />} />
         </Route>
 
       </Routes>
