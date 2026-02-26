@@ -28,6 +28,19 @@ const Login = () => {
 
             {/* Imagen de fondo */}
             <div className="hidden md:flex w-1/2 relative flex-col justify-center items-center px-10">
+                <h2 className="text-3xl font-bold text-center">
+                    Sistema de Asistencia Técnica
+                </h2>
+
+                <p className="mt-4 text-center text-black-200">
+                    Gestión de tickets de asistencia técnica
+                </p>
+
+                <div className="mt-10 border-t border-black w-3/4"></div>
+
+                <p className="mt-6 text-sm text-black-300 text-center">
+                    Escuela Politécnica Nacional
+                </p>
                 <div className="absolute inset-0 bg-rose-700/70"></div>
             </div>
 
