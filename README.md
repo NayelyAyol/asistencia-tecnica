@@ -1,16 +1,25 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 align="center"> 🐶 SISTEMA DE GESTIÓN DE TICKETS DE ASISTENCIA TÉCNICA 🐱</h1>
 
-Currently, two official plugins are available:
+El sistema permite la gestión de tickets de peticiones para la realización de un servicio técnico.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Creado por
 
-## React Compiler
+Este proyecto fue completado por las siguientes integrantes:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Nayely Ayol (Frontend)
+- Alessia Pérez (Backend)
 
-## Expanding the ESLint configuration
+## 🖼️ Vista Previa del Proyecto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| **Sección** | **Visualización** |
+| :----------- | :-----------: |
+| **Página principal** | <img src="./la.jpeg" width="500" height="500"/> |
+| **Inicio de sesión** | <img src="./i.jpeg" width="500" height="500"/> |
+| **Registro** | <img src="./r.jpeg" width="500" height="500"/> |
+| **Perfil** | <img src="./per.png" width="500" height="500"/> |
+
+
+
+## 🔗 Link del despliegue en Netlify
+[![Abrir en Netlify](https://img.shields.io/badge/Deploy-Netlify-000000?style=for-the-badge&logo=vercel&logoColor=ffffff)](https://asistenciavirtual.netlify.app/)
